@@ -11,10 +11,16 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 
+from cloud.models import File
+
 
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated])
 def custom_serve(request, path: str, document_root=None, show_indexes=False):
+    if File.objects.filter(anonym_link=path.split('/')[1]).exists():
+        file = File.objects.get(anonym_link=path.split('/')[1]) # 'cloud/admin/Zlobin_Maksim.pdf'
+        i = file
+        path = file.file.name
     if request.user.is_anonymous:
         return HttpResponse({'error: 403'}, status=status.HTTP_403_FORBIDDEN)
     user = path.split('/')[1]
