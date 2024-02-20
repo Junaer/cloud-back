@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["89.104.67.216", '127.0.0.1', '185.112.102.69:3020']
+ALLOWED_HOSTS = ["89.104.67.216", '127.0.0.1', '185.112.102.69']
 
 # Application definition
 
@@ -99,7 +99,7 @@ CORS_ALLOWED_ORIGINS = [
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
-CSRF_TRUSTED_ORIGINS = ['https://back-project-tracker.admlr.lipetsk.ru', 'http://185.112.102.69:3020']
+CSRF_TRUSTED_ORIGINS = ['https://back-project-tracker.admlr.lipetsk.ru', 'http://185.112.102.69']
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
